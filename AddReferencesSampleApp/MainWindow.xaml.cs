@@ -639,6 +639,22 @@ namespace AddReferencesSampleApp
 
         }
 
+        private void GettheselectedItemsandOtheritems1(string[] selectedItems, string[] otheraddeditems)
+        {
+            try
+            {
+                SelectedItems selectedItems1 = new SelectedItems();
+                selectedItems1.Getlistselecteditems(selectedItems, otheraddeditems);
+                this.Hide();
+                selectedItems1.Show();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
         #endregion
 
         #region Window Events
