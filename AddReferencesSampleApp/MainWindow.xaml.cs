@@ -37,6 +37,7 @@ namespace AddReferencesSampleApp
         public MainWindow()
         {
             InitializeComponent();
+            this.txtblockDescription.Background = new SolidColorBrush(Colors.LightGray);
             if (Environment.Is64BitOperatingSystem)
             {
                 filepath = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1";
@@ -47,14 +48,57 @@ namespace AddReferencesSampleApp
             }
             txtPath.Text = filepath.ToString();
             GetDirectories(filepath);
-            lvNamespaces.SelectedIndex = 0;
+            lvNamespaces.SelectedIndex = 0;        
+
         }
 
         public class Namespaces
         {
-            public string Namespace { get; set; }
-            // public bool Selection { get; set; }
-            public bool IsChecked { get; set; }
+            //public string Namespace { get; set; }
+            //// public bool Selection { get; set; }
+            //public bool IsChecked { get; set; }
+
+            private string nameValue;
+            public string Namespace
+            {
+                get
+                {
+                    return nameValue;
+                }
+                set
+                {
+                    nameValue = value;
+                }
+            }
+
+            private bool ageValue;
+            public bool IsChecked
+            {
+                get { return ageValue; }
+
+                set
+                {
+                    if (value != ageValue)
+                    {
+                        ageValue = value;
+                    }
+                }
+            }
+
+            private string properties;
+            public string Property
+            {
+                get { return properties; }
+
+                set
+                {
+                    if (value != properties)
+                    {
+                        properties = value;
+                    }
+                }
+            }
+
         }        
 
         #region Click events
@@ -298,8 +342,10 @@ namespace AddReferencesSampleApp
                         // if (getfileinformation != null && getfileinformation.Length > 0)
                         // {
                         FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(namespacecombined);
-                        txtblockDescription.Text = myFileVersionInfo.ToString(); //MessageBox.Show(myFileVersionInfo.ToString());                             
-                                                                                 //}
+                      //  txtblockDescription.Text = myFileVersionInfo.ToString(); //MessageBox.Show(myFileVersionInfo.ToString());  
+                        Namespaces person = new Namespaces { Property = myFileVersionInfo.ToString() };
+                        this.DataContext = person;
+                        //}
 
                     }
                     else

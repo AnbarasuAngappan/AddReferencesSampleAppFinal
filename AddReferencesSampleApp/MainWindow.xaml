@@ -93,7 +93,8 @@
                                                     <TextBlock Text="Properties :" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="15" ToolTip="Properties :"/>
                                                 </StackPanel>
                                             </GroupBox.Header>
-                                            <TextBlock x:Name="txtblockDescription" Background="#FFE6EBF5" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="468" Width="254" Text="{Binding SelectedItem.Content, ElementName=listView}" Grid.ColumnSpan="2"/>
+                                            <TextBox Name="txtblockDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Property}" VerticalAlignment="Top" Height="454" Margin="0,0,-2,0" Width="255" IsReadOnly="True" />
+                                            <!--<TextBlock x:Name="txtblockDescription" Background="#FFE6EBF5" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="468" Width="254" Text="{Binding SelectedItem.Content, ElementName=listView}" Grid.ColumnSpan="2"/>-->
                                         </GroupBox>
 
 
