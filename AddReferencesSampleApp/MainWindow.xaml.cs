@@ -121,7 +121,7 @@ namespace AddReferencesSampleApp
             try
             {
                 //Namespaces namespacesOK = (Namespaces)lvNamespaces.SelectedItems;
-                string[] d = new string[200];
+                string[] selecteditems = new string[lvNamespaces.Items.Count];
                 if (lvNamespaces.SelectedItems.Count > 0)
                 {
 
@@ -148,7 +148,7 @@ namespace AddReferencesSampleApp
                         {
                             for (int x = D; x < lvNamespaces.SelectedItems.Count;)
                             {
-                                d[x] = item.Namespace.ToString();
+                                selecteditems[x] = item.Namespace.ToString();
                                 D = x + 1;
                                 break;
                                 #region
@@ -171,20 +171,20 @@ namespace AddReferencesSampleApp
                         }
                     }
 
-                    d = d.Where(c => c != null).ToArray();
+                    selecteditems = selecteditems.Where(c => c != null).ToArray();
 
                     if (cmbboxselecteditems.Items.Count > 0)
                     {
-                        string[] items = new string[cmbboxselecteditems.Items.Count];
+                        string[] browseselecteditems = new string[cmbboxselecteditems.Items.Count];
 
                         for (int i = 0; i < cmbboxselecteditems.Items.Count; i++)
                         {
-                            items[i] = cmbboxselecteditems.Items[i].ToString();
+                            browseselecteditems[i] = cmbboxselecteditems.Items[i].ToString();
                         }
-                        GettheselectedItemsandOtheritems(d, items);
+                        GettheselectedItemsandOtheritems(selecteditems, browseselecteditems);
                     }                  
                     else
-                        GettheselectedItems(d);
+                        GettheselectedItems(selecteditems);
                 }
                 else
                     MessageBox.Show("Select Atlease One Item", "",MessageBoxButton.OK);
